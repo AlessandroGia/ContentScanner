@@ -4,7 +4,6 @@ from aiohttp import ClientSession
 from requests import get
 from sys import exit
 
-
 class ContentScanner:
 
     def __init__(self, worldlist_path: str) -> None:
@@ -35,8 +34,8 @@ class ContentScanner:
             exit("Something gone wrong while opening wordlist file")
 
 async def main(args):
-    c = ContentScanner(r'' + args.path)
-    await c.scan(args.url)
+    content_scanner = ContentScanner(r'' + args.path)
+    await content_scanner.scan(args.url)
 
 if __name__ == "__main__":
     parser = ArgumentParser(description='Web Content Scanner.')
